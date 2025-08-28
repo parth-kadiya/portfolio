@@ -30,3 +30,11 @@
     transform: scale(0.93);
   }
 }
+
+/* Mobile responsive fix */
+@media (max-width: 768px) {
+  .back-to-top {
+    top: auto;   /* bottom ko hata diya */
+    bottom: 70px;      /* top se 30px margin */
+  }
+}
