@@ -1,0 +1,170 @@
+
+/* education Section */
+.education-section {
+  background-color: #fdf1eb;
+  padding: 60px 20px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.education-heading {
+    position: relative;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.education-heading h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #d49466; /* Keep as is or change to #ff5a5f for more energy */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Typewriter animation style (copied from Experience.css) */
+.education-subtitle {
+  font-size: 24px;
+  font-style: italic;
+  color: #fa8484;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: inline-block;
+  white-space: nowrap;
+  font-family: 'Poppins', sans-serif;
+}
+
+.education-subtitle::after {
+  content: '|';
+  animation: blink 1s infinite;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+.education-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.timeline {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: #ff5a5f;
+  transform: translateX(-50%);
+  z-index: 0; /* Ensure behind boxes */
+}
+
+.education-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.education-box {
+    width: 45%;
+    background: white;
+    padding: 20px;
+    border-radius: 40px 0 40px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin: 20px 0;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    z-index: 2;
+}
+
+.education-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 100%;
+    height: 100%;
+    background: #ffdbdb;
+    transition: right 0.5s ease;
+    z-index: -1;
+}
+
+.education-box:hover::before {
+    right: 0;
+}
+
+.education-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Gradient hover effect like Projects.js */
+.education-box.gradient-text-hover:hover h3,
+.education-box.gradient-text-hover:hover p {
+  background: conic-gradient(from 0deg, #ff5a5f, #b81c17, #ff5a5f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.4s ease;
+}
+
+.education-entry {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start; /* default for left */
+  margin: 20px 0;
+}
+
+/* Right aligned box */
+.education-entry.right {
+  justify-content: flex-end;
+}
+
+.connector-line {
+  position: absolute;
+  top: 50%;
+  height: 4px;
+  background-color: #ff5a5f;
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+
+/* Left entry connects from right side */
+.education-entry.left .connector-line {
+  left: 45%;           /* बॉक्स के राइट एज से ठीक शुरू */
+  width: 5%;           /* 50% − 45% */
+}
+
+/* Right entry connects from left side */
+.education-entry.right .connector-line {
+  right: 45%;          /* बॉक्स के लेफ्ट एज से ठीक शुरू */
+  width: 5%;           /* 50% − 45% */
+}
+
+.education-box h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.education-box p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    text-align: justify;
+}
+

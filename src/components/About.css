@@ -1,0 +1,85 @@
+/* About Us Section */
+.about {
+  display: flex;
+  justify-content: center;      /* content को horizontally center करें */
+  align-items: center;
+  padding: 50px 40px;           /* left-right में gap बढ़ाया */
+  background-color: #fdf1eb;
+  gap: 120px;                    /* image और content के बीच थोड़ा spacing */
+  max-width: 1200px;            /* content की max चौड़ाई */
+  margin: 0 auto;               /* left-right auto = center horizontally */
+}
+
+.about-image {
+  flex: 1;
+  max-width: 400px;             /* absolute size limit */
+  border-radius: 40px 0 40px 0;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 40px 0 40px 0;
+}
+
+.about-content {
+  flex: 1;
+  max-width: 600px;
+  text-align: left;
+}
+
+.about-content h4 {
+  font-size: 24px;
+  font-style: italic;
+  color: #fa8484;
+  margin-bottom: 10px;
+}
+
+.about-content h2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+.about-content .read-more {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #d88a6d;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+
+.about-content .read-more:hover {
+  background-color: #c77a5f;
+}
+
+.typing-text::after {
+  content: '|';
+  animation: blink 1s infinite;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}
+

@@ -1,0 +1,49 @@
+/* Mobile Responsive — Parth Section (≤768px) */
+@media (max-width: 768px) {
+  .parth {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .parth-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .parth-content {
+    position: static;       /* image ke niche dikhane ke liye */
+    transform: none;
+    padding: 20px;
+    max-width: 100%;
+    background: none;       /* background hata diya gaya */
+    color: inherit;         /* default color */
+    margin-top: -10px;          /* margin-top hataya kyunki ab overlap nahi kar rahe */
+    z-index: auto;
+  }
+
+  .parth-typing {
+    min-height: 40px;
+    color: #fa8484;         /* "Parth Kadiya" text color */
+    font-weight: 700;
+    font-size: 32px;
+    margin-bottom: 8px !important;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .parth p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #666;            /* paragraph text color */
+  }
+
+  .parth h1 {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+}

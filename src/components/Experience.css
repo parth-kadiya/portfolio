@@ -1,0 +1,123 @@
+.experience-section {
+  background-color: #fdf1eb;
+  padding: 60px 20px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.experience-subtitle::after {
+  content: '|';
+  animation: blink 1s infinite;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+.experience-subtitle {
+  font-size: 24px;
+  font-style: italic;
+  color: #fa8484;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.experience-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+.experience-timeline {
+  position: relative;
+  margin: 0 auto;
+  max-width: 900px;
+  padding-left: 20px;
+  border-left: 3px solid #ff5a5f;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+  padding-left: 30px;
+  text-align: left;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -11px;
+  top: 12px;
+  width: 18px;
+  height: 18px;
+  background: conic-gradient(from 0deg, #ff5a5f, #ffc107, #b81c17, #ff5a5f);
+  border-radius: 50%;
+  animation: rotate-border 4s linear infinite;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 4px #ffe1e1;
+}
+
+@keyframes rotate-border {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Premium card styles */
+.timeline-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 40px 0 40px 0;
+  padding: 25px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Reusable gradient text hover effect */
+.gradient-text-hover:hover h3,
+.gradient-text-hover:hover p,
+.gradient-text-hover:hover span {
+  background: conic-gradient(from 0deg, #ff5a5f, #b81c17, #ff5a5f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  transition: all 0.4s ease;
+}
+
+.timeline-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.timeline-card h3 span {
+  font-weight: 500;
+  color: #888;
+  font-size: 16px;
+}
+
+.timeline-duration {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+.timeline-desc {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+}

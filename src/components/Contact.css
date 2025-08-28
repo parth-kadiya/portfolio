@@ -1,0 +1,107 @@
+
+
+/* Contact Form */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.contact-section {
+  background-color: #fdf1eb;
+  padding: 60px 20px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.contact-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-container h4 {
+    font-size: 18px;
+    font-style: italic;
+    color: #b89f84;
+    margin-bottom: 10px;
+}
+
+.contact-subtitle {
+  font-size: 24px;
+  font-style: italic;
+  color: #fa8484;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 10px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.contact-subtitle::after {
+  content: '|';
+  animation: blink 1s infinite;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+.contact-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #222;
+  font-family: 'Poppins', sans-serif;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input[type="text"],
+input[type="tel"],
+textarea,
+button.send-button {
+    font-family: 'Poppins', sans-serif; /* 👈 Add this line */
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 20px 0 20px 0;
+    font-size: 16px;
+    outline: none;
+    resize: none;
+}
+
+textarea {
+    height: 120px;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #e56262;
+}
+
+button.send-button {
+    background-color: #e56262;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.send-button:hover {
+    background-color: #e14c4e;
+}

@@ -1,0 +1,113 @@
+/* src/components/Donate.css */
+.donate-page {
+  padding: 4rem;
+  text-align: center;
+  position: relative;
+  color: #ff5a5f;
+}
+
+.qr-container {
+  margin: 2rem 0;
+}
+
+.qr-image {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background-color: #ff5a5f;
+  color: white;
+  border-radius: 4px;
+}
+
+.action-btn:hover {
+    background-color: #e14c4e;
+}
+
+.action-btn i {
+  font-size: 1.1rem;
+}
+
+/* ========== Responsive Styles ========== */
+
+/* Small devices (phones, less than 600px) */
+@media (max-width: 600px) {
+  .donate-page {
+    padding: 2rem 1rem;
+  }
+
+  .qr-image {
+    max-width: 220px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .action-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+}
+
+/* Medium devices (tablets, 600px to 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .donate-page {
+    padding: 3rem 2rem;
+  }
+
+  .qr-image {
+    max-width: 260px;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .action-btn {
+    padding: 0.7rem 1.4rem;
+    font-size: 1rem;
+  }
+}
+
+/* Large devices (desktops, 1025px and above) */
+@media (min-width: 1025px) {
+  .donate-page {
+    padding: 4rem;
+  }
+
+  .qr-image {
+    max-width: 300px;
+  }
+
+  .actions {
+    flex-direction: row;
+    gap: 1.2rem;
+  }
+
+  .action-btn {
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+  }
+}

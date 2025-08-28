@@ -1,0 +1,279 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif !important;
+    background-color: #fdf1eb;
+     font-weight: 400;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+/* Optional: Strong and Emphasis */
+strong, b {
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+}
+
+em, i {
+  font-style: italic;
+}
+
+header {
+  height: 60px; /* fixed height */
+  padding: 0 16px; /* vertical padding हटाया */
+  overflow: visible; /* logo को clip करेगा */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: transform 0.4s ease-in-out; /* 👈 Add this */
+  border-radius: 0 0 20px 20px;
+}
+
+header.hide {
+  transform: translateY(-100%);
+}
+
+header.show {
+  transform: translateY(0);
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+}
+
+.nav-toggle .hamburger,
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+    background-color: #ff5a5f; 
+}
+
+.nav-toggle.active .close-icon {
+    color: #ff5a5f;
+}
+
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    position: relative;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    top: 8px;
+}
+
+.close-icon {
+    display: none;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.nav a i {
+  margin-right: 5px;
+}
+
+/* Show close icon when nav is active */
+.nav-toggle.active .close-icon {
+    display: block;
+}
+
+.nav-toggle.active .hamburger {
+    display: none;
+}
+
+header.hide {
+    transform: translateY(-100%);
+}
+
+header.show {
+    transform: translateY(0);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff5a5f;
+    font-family: 'Roboto', sans-serif;
+}
+
+.logo-img {
+  height: 120px;           /* आप जरूरत अनुसार कम/ज़्यादा कर सकते हैं */
+  width: auto;
+  display: block;
+}
+
+.nav {
+    display: flex;
+    gap: 15px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav a:hover, .nav a.active {
+    color: #ff5a5f;
+    border-bottom: 2px solid #ff5a5f;
+}
+
+.ai-image-btn {
+  background-color: #e56262;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px 0 25px 0;
+  text-decoration: none;
+  cursor: pointer;
+  margin-right: 30px;
+
+  /* Add animation 👇 */
+  animation: pulse 1.8s infinite ease-in-out;
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.92); /* Slightly smaller */
+  }
+}
+
+.ai-image-btn:hover {
+    background-color: #e14c4e;
+}
+
+/* Tablet Devices (max-width: 1024px) */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Dropdown-toggle पर भी वही underline जैसा बाकी nav links पर है */
+.dropdown-toggle:hover {
+  color: #ff5a5f;
+  border-bottom: 2px solid #ff5a5f;
+}
+
+/* Highlight dropdown-toggle like an active link */
+.dropdown-toggle.active {
+  color: #ff5a5f;
+  border-bottom: 2px solid #ff5a5f;
+}
+
+.dropdown-arrow {
+  margin-left: 6px;
+  font-size: 10px;
+}
+
+.dropdown-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #ffffff;
+  min-width: 180px;
+  padding: 8px 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 999;
+  border-radius: 10px; /* 👈 Rounded corners */
+  border: 1px solid #ff5a5f20; /* 👈 Light red border */
+}
+
+.dropdown-menu a {
+  padding: 10px 20px;
+  display: block;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;              /* 👈 Same as navbar */
+  font-family: 'Poppins', sans-serif;  /* 👈 Same as navbar */
+  font-size: 14px;               /* 👈 Same as navbar approx */
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: #ffecec;
+  color: #ff5a5f;
+  padding-left: 22px; /* ✅ Increase slightly from 20px (was before) */
+}
+
+
+.dropdown-menu {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}
