@@ -16,6 +16,7 @@
     position: relative;  /* not absolute on mobile so it doesn't leave empty space */
     z-index: 0;
     border-radius: 14px; /* optional rounded look like screenshot */
+    margin-top: 12px;
   }
 
   .parth-content {
