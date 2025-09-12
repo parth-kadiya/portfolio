@@ -12,7 +12,7 @@ export default function Ai() {
   }, []);
 
   // PUBLIC_URL के साथ assets path
-  const rawPath = `${process.env.PUBLIC_URL}/assets/Gpay.png`;
+  const rawPath = `${process.env.PUBLIC_URL}/assets/Gandhiji_modi.png`;
   const qrImage = encodeURI(rawPath); // spaces को encode करने के लिए
 
   // 🆕 Hook for scroll animation
@@ -23,7 +23,7 @@ export default function Ai() {
     const link = document.createElement('a');
     link.href = qrImage;
     // download attribute में सिर्फ filename चाहिए
-    link.download = 'Gpay.png';
+    link.download = 'Gandhiji_modi.png';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

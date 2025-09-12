@@ -1,4 +1,3 @@
-// src/components/Projects.js
 import React, { useEffect, useState } from "react";
 import "./Projects.css";
 import "./Projects_m.css";
@@ -13,28 +12,41 @@ export default function Projects() {
   const [ref, isVisible] = useScrollAnimation();
 
   useEffect(() => {
+    let mounted = true;
     let index = 0;
-    let interval;
+    let typingTimeout = null;
 
-    const type = () => {
-      interval = setInterval(() => {
-        if (index < fullText.length) {
-          setText(fullText.slice(0, index + 1));
-          index++;
-        } else {
-          clearInterval(interval);
-          setTimeout(() => {
-            setText("");
-            index = 0;
-            type();
-          }, 2000);
-        }
-      }, 150);
+    const run = () => {
+      if (!mounted) return;
+
+      // if subtitle not visible, poll until it becomes visible (pauses typing)
+      if (!isVisible) {
+        typingTimeout = setTimeout(run, 500);
+        return;
+      }
+
+      if (index < fullText.length) {
+        setText(fullText.slice(0, index + 1));
+        index++;
+        typingTimeout = setTimeout(run, 150);
+      } else {
+        // finished — keep visible for 2s, then clear and restart
+        typingTimeout = setTimeout(() => {
+          if (!mounted) return;
+          setText("");
+          index = 0;
+          run();
+        }, 2000);
+      }
     };
 
-    type();
-    return () => clearInterval(interval);
-  }, []);
+    run();
+
+    return () => {
+      mounted = false;
+      if (typingTimeout) clearTimeout(typingTimeout);
+    };
+  }, [isVisible, fullText]);
 
   const projects = [
     {
@@ -115,7 +127,7 @@ export default function Projects() {
         "Doctor template focused on patient interaction and easy navigation.",
       image: "lathrix.png",
       github: "https://github.com/parth-kadiya/fifth-sample-doctor",
-      demo: "https://github.com/parth-kadiya/fifth-sample-doctor",
+      demo: "https://github.com/parth-kadiya/fifth-sample-doctor/",
     },
     {
       title: "Independence Day India Map",
@@ -199,28 +211,47 @@ export default function Projects() {
   ];
 
   return (
-    <section className="projects-section" id="projects">
+    <section className="projects-section" id="projects" aria-labelledby="projects-title">
       {/* attach ref to subtitle only — doesn't hide whole section */}
       <p
         ref={ref}
         className={`projects-subtitle typing-text ${isVisible ? "subtitle-visible" : ""}`}
+        aria-hidden={false}
       >
         {text}
       </p>
 
-      <h2 className="projects-title">What I've Built</h2>
+      <h2 className="projects-title" id="projects-title">
+        What I've Built
+      </h2>
 
       {/* grid will handle any number of projects */}
-      <div className="projects-grid">
+      <div className="projects-grid" role="list">
         {projects.map((project, index) => {
-          const imgSrc = project.image.startsWith("http")
+          const imgSrc = project.image && project.image.startsWith("http")
             ? project.image
             : `${process.env.PUBLIC_URL}/assets/${project.image}`;
+
+          const placeholder = `${process.env.PUBLIC_URL}/assets/placeholder.png`;
+
           return (
-            <article className="project-card" key={`${project.title}-${index}`}>
-              <div className="project-icon">
+            <article
+              className="project-card"
+              key={`${project.title}-${index}`}
+              role="listitem"
+            >
+              <div className="project-icon" aria-hidden="true">
                 <div className="project-icon-inner">
-                  <img src={imgSrc} alt={project.title} loading="lazy" />
+                  <img
+                    src={imgSrc}
+                    alt={project.title + " preview"}
+                    loading="lazy"
+                    onError={(e) => {
+                      if (e.currentTarget.src !== placeholder) {
+                        e.currentTarget.src = placeholder;
+                      }
+                    }}
+                  />
                 </div>
               </div>
               <div className="project-content">
@@ -231,15 +262,19 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="github-btn"
+                    aria-label={`Open ${project.title} GitHub`}
                   >
-                    GitHub
+                    <span>GitHub</span>
                   </a>
                   <a
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="live-btn"
+                    aria-label={`Open ${project.title} Live Demo`}
                   >
-                    Live Demo
+                    <span>Live Demo</span>
                   </a>
                 </div>
               </div>

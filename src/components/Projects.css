@@ -1,10 +1,16 @@
+:root {
+  --accent1: #ff5a5f;
+  --accent2: #f58b65;
+  --accent3: #b81c17;
+  --bg-section: #fdf1eb;
+}
+
 /* Projects Section */
 .projects-section {
-  background-color: #fdf1eb;
+  background-color: var(--bg-section);
   padding: 60px 20px;
   font-family: 'Poppins', sans-serif;
   text-align: center;
-  /* ensure no clipping */
   overflow: visible;
 }
 
@@ -19,13 +25,15 @@
   display: inline-block;
   white-space: nowrap;
   transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(10px);
+  opacity: 0;
 }
 
-/* optional blink caret kept */
+/* caret */
 .projects-subtitle::after {
   content: '|';
   animation: blink 1s infinite;
-  margin-left: 4px;
+  margin-left: 6px;
 }
 
 @keyframes blink {
@@ -37,7 +45,6 @@
   }
 }
 
-/* when subtitle becomes visible (from hook), we can add a subtle pop */
 .subtitle-visible {
   transform: translateY(0);
   opacity: 1;
@@ -50,7 +57,7 @@
   color: #222;
 }
 
-/* Use CSS Grid for robust multi-row layout */
+/* Grid */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -66,7 +73,7 @@
 /* Card */
 .project-card {
   background-color: #fff;
-  border-radius: 20px;
+  border-radius: 40px 0px 40px 0px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
@@ -74,32 +81,36 @@
   flex-direction: column;
   align-items: center;
   padding: 18px;
-  min-height: 220px; /* ensures consistent card height when content short */
+  min-height: 220px;
 }
 
-/* Hover */
 .project-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 30px rgba(0,0,0,0.12);
 }
 
-/* Icon circle */
+/* -----------------------
+   Icon (rotating gradient)
+   replicated from Skills.css
+   -----------------------*/
 .project-icon {
   width: 140px;
   height: 140px;
   margin: 8px auto 12px auto;
   border-radius: 50%;
-  padding: 6px;
+  padding: 6px; /* thickness of gradient ring */
   background: conic-gradient(
     from 0deg,
-    #ff5a5f,
+    var(--accent1),
     #ffc107,
-    #b81c17,
-    #ff5a5f
+    var(--accent3),
+    var(--accent1)
   );
+  animation: rotate-border 3s linear infinite;
   display: flex;
   align-items: center;
   justify-content: center;
+  will-change: transform;
 }
 
 .project-icon-inner {
@@ -110,15 +121,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: rotate-inner 3s linear infinite; /* opposite direction for inner */
 }
 
+/* image inside icon */
 .project-icon img {
   width: 80px;
   height: 80px;
   object-fit: contain;
   display: block;
-  max-width: 100%;
-  max-height: 100%;
+}
+
+/* keyframes for rotating border + inner counter-rotate */
+@keyframes rotate-border {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes rotate-inner {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
+}
+
+/* subtle glow on hover similar to Skills */
+.project-card:hover .project-icon {
+  box-shadow: 0 0 0 6px rgba(255,225,225,0.6);
 }
 
 /* Content */
@@ -157,45 +183,135 @@
   margin-top: 8px;
 }
 
+/* Base link/button styles */
 .project-links a {
   font-size: 13px;
   font-weight: 600;
-  color: #ff5a5f;
   text-decoration: none;
-  border: 2px solid #ff5a5f;
-  padding: 6px 12px;
-  border-radius: 16px;
-  transition: all 0.25s ease;
-  background-color: #fff;
+  padding: 10px 16px;
+  border-radius: 20px 0 20px 0;
+  transition: color 0.28s ease, border-color 0.28s ease, box-shadow 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  position: relative; /* for pseudo element */
+  overflow: hidden;
+  z-index: 1; /* keep content above the sliding bg */
+  -webkit-tap-highlight-color: transparent;
 }
 
-.project-links a:hover {
-  background: linear-gradient(
-    135deg,
-    #ff5a5f,
-    #f58b65,
-    #ff5a5f
-  );
-  color: #fff;
+/* ensure the visible text sits in a span so z-index works consistently */
+.project-links a > span {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  line-height: 1;
+}
+
+/* Sliding overlay pseudo-element (shared behavior)
+   Expanded slightly to cover 2px border area to avoid seam/gap */
+.project-links a::before {
+  content: "";
+  position: absolute;
+  left: -2px; /* expand left to cover border */
+  top: -2px;  /* expand top to cover border */
+  width: calc(100% + 4px); /* cover both left & right borders */
+  height: calc(100% + 4px);
+  border-radius: 20px 0 20px 0; /* match button radius */
+  transform: translateX(-100%); /* start fully left (hidden) */
+  transition: transform 0.45s cubic-bezier(.2,.9,.3,1), opacity 0.25s ease;
+  z-index: 1; /* behind text (which is z-index:2) */
+  pointer-events: none;
+  box-sizing: border-box;
+  will-change: transform;
+}
+
+/* On hover/focus slide it to cover the button (left -> right) */
+.project-links a:hover::before,
+.project-links a:focus-visible::before {
+  transform: translateX(0);
+}
+
+/* GitHub Button styles */
+.github-btn {
+  color: var(--accent1);
+  border: 2px solid var(--accent1);
+  background-color: #fff;
+  box-shadow: none;
+}
+
+/* GitHub overlay gradient (slides on hover) */
+.github-btn::before {
+  background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent3));
+}
+
+/* Stronger specificity to ensure color switch */
+.project-links a.github-btn:hover,
+.project-links a.github-btn:focus-visible {
+  color: #ffffff;
   border-color: transparent;
+  box-shadow: 0 0 8px rgba(255, 90, 95, 0.22);
+}
+
+/* Live Demo Button styles */
+.live-btn {
+  background: linear-gradient(135deg, var(--accent1), var(--accent2), var(--accent1));
+  color: #fff;
+  border: 2px solid transparent;
   box-shadow: 0 0 8px rgba(255, 90, 95, 0.25);
 }
 
-/* small visual effect for hovered card text */
-.project-card:hover h3,
-.project-card:hover p {
-  /* keep text readable, no text clipping */
-  /* subtle gradient clip for h3 only */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: inherit;
+/* Live overlay (slides white over the gradient to invert) */
+.live-btn::before {
+  /* sliding white overlay so final hover state becomes white bg with accent text */
+  background: linear-gradient(90deg, #ffffff, #ffffff);
+  opacity: 1;
 }
 
-/* Responsive tweaks for smaller screens */
+/* Stronger specificity to ensure color switch on hover */
+.project-links a.live-btn:hover,
+.project-links a.live-btn:focus-visible {
+  color: var(--accent1);
+  border-color: var(--accent1);
+  box-shadow: none;
+}
+
+/* keyboard focus (accessibility): provide an outline so keyboard users see focus state */
+.project-links a:focus-visible {
+  outline: 3px solid rgba(255,90,95,0.12);
+  outline-offset: 2px;
+}
+
+/* Make sure overlay is visible when element is active/tapped on touch devices */
+.project-links a:active::before,
+.project-links a:focus::before {
+  transform: translateX(0);
+}
+
+/* Responsive */
 @media (max-width: 1024px) {
   .projects-grid {
     gap: 22px;
   }
   .project-card {
     min-height: 240px;
+  }
+  .projects-subtitle {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-subtitle {
+    font-size: 18px;
+  }
+
+  .project-icon {
+    width: 110px;
+    height: 110px;
+  }
+
+  .project-icon img {
+    width: 64px;
+    height: 64px;
   }
 }

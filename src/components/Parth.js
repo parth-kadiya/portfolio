@@ -45,11 +45,10 @@ export default function Parth() {
 
   return (
     <section
-  className={`parth scroll-animate ${isVisible ? 'visible' : ''}`}
-  id="parth"
-  ref={ref}
->
-
+      className={`parth scroll-animate ${isVisible ? 'visible' : ''}`}
+      id="parth"
+      ref={ref}
+    >
       <img
         src={imgSrc}
         alt="Parth Kadiya"

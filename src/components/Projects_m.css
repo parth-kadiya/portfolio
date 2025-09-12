@@ -17,6 +17,7 @@
   }
 
   .projects-grid {
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
@@ -54,20 +55,55 @@
     margin-bottom: 12px;
   }
 
-    .project-links {
+  .project-links {
     display: flex;
-    flex-direction: row; /* 👈 Changed to row */
+    flex-direction: row;
     justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap; /* 👈 Optional: wrap in case space is tight */
+    gap: 20px;
+    flex-wrap: wrap;
   }
 
-  .project-links a {
-    font-size: 13px;
-    padding: 6px 14px;
-    text-align: center;
-    flex: 1 1 auto; /* 👈 Optional: allows buttons to shrink evenly */
-    max-width: 140px;
+/* --- Add inside your @media (max-width: 768px) block in Projects_m.css --- */
+
+/* ensure the link itself centers its inline-flex content */
+.project-links a {
+  /* already inline-flex in base — re-assert and center */
+  display: inline-flex;
+  justify-content: center; /* <-- centers text horizontally inside the button */
+  align-items: center;     /* <-- centers vertically (already set in base but safe) */
+  text-align: center;      /* fallback for inline text */
+  box-sizing: border-box;  /* consistent padding/width calculation */
+  padding-left: 14px;      /* tweak if you want more horizontal padding */
+  padding-right: 14px;
+}
+
+/* make the inner span occupy the button so its text-centering works reliably */
+.project-links a > span {
+  display: block;    /* change from inline-block to block on mobile */
+  width: 100%;
+  line-height: 1;    /* keep vertical spacing consistent */
+  text-align: center;/* ensure the text inside span is centered */
+}
+
+/* Optional: make both buttons equal width on very small screens (uncomment if desired)
+.project-links a {
+  flex: 1 1 140px;
+  max-width: 140px;
+}
+*/
+
+
+  /* Keep hover/focus behaviour for mobile/touch */
+  .project-links .live-btn:hover,
+  .project-links .live-btn:focus-visible,
+  .project-links .github-btn:hover,
+  .project-links .github-btn:focus-visible {
+    box-shadow: none;
   }
 
+  /* Make sure overlay still appears on tap/focus for mobile: */
+  .project-links a:active::before,
+  .project-links a:focus::before {
+    transform: translateX(0);
+  }
 }
