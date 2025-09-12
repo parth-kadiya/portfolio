@@ -211,7 +211,7 @@ export default function Header() {
           })}
         </nav>
 
-        <Link to="/donate" className="ai-image-btn">
+        <Link to="/ai_image" className="ai-image-btn">
           AI Images
         </Link>
 

@@ -1,4 +1,4 @@
-// src/components/Donate.js
+// src/components/Ai.js
 import React, { useEffect } from 'react';
 import './Ai.css';
 
@@ -13,15 +13,15 @@ export default function Ai() {
 
   // PUBLIC_URL के साथ assets path
   const rawPath = `${process.env.PUBLIC_URL}/assets/Gandhiji_modi.png`;
-  const qrImage = encodeURI(rawPath); // spaces को encode करने के लिए
+  const Gandhiji_modi = encodeURI(rawPath); // spaces को encode करने के लिए
 
   // 🆕 Hook for scroll animation
-    const [ref, isVisible] = useScrollAnimation();
+  const [ref, isVisible] = useScrollAnimation();
 
   // Download handler
   const handleDownload = () => {
     const link = document.createElement('a');
-    link.href = qrImage;
+    link.href = Gandhiji_modi;
     // download attribute में सिर्फ filename चाहिए
     link.download = 'Gandhiji_modi.png';
     document.body.appendChild(link);
@@ -34,9 +34,9 @@ export default function Ai() {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'Donate via UPI',
-          text: 'Scan this QR code to donate via UPI.',
-          url: window.location.origin + qrImage
+          title: 'AI Image',
+          text: 'Check out this AI generated image.',
+          url: window.location.origin + Gandhiji_modi
         });
       } catch (err) {
         console.error('Share failed:', err);
@@ -48,12 +48,12 @@ export default function Ai() {
 
   return (
     <div
-  className={`donate-page scroll-animate ${isVisible ? 'visible' : ''}`}
-  ref={ref}
->
+      className={`ai_image-page scroll-animate ${isVisible ? 'visible' : ''}`}
+      ref={ref}
+    >
       <h2>Coming Soon</h2>
       <div className="qr-container">
-        <img src={qrImage} alt="UPI QR Code" className="qr-image" />
+        <img src={Gandhiji_modi} alt="AI image preview" className="qr-image" />
       </div>
       <div className="actions">
         <button onClick={handleDownload} className="action-btn">

@@ -1,5 +1,5 @@
-/* src/components/Donate.css */
-.donate-page {
+/* src/components/Ai.css */
+.ai_image-page {
   padding: 4rem;
   text-align: center;
   position: relative;
@@ -36,7 +36,7 @@
 }
 
 .action-btn:hover {
-    background-color: #e14c4e;
+  background-color: #e14c4e;
 }
 
 .action-btn i {
@@ -47,7 +47,7 @@
 
 /* Small devices (phones, less than 600px) */
 @media (max-width: 600px) {
-  .donate-page {
+  .ai_image-page {
     padding: 2rem 1rem;
   }
 
@@ -71,7 +71,7 @@
 
 /* Medium devices (tablets, 600px to 1024px) */
 @media (min-width: 601px) and (max-width: 1024px) {
-  .donate-page {
+  .ai_image-page {
     padding: 3rem 2rem;
   }
 
@@ -93,7 +93,7 @@
 
 /* Large devices (desktops, 1025px and above) */
 @media (min-width: 1025px) {
-  .donate-page {
+  .ai_image-page {
     padding: 4rem;
   }
 

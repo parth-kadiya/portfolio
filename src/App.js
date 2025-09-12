@@ -12,7 +12,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 
-// ← New: import Donate page
+// ← New: import ai_image page
 import Ai from './components/Ai';
 
 function App() {
@@ -35,8 +35,8 @@ function App() {
             </>
           }/>
 
-          {/* Donate page */}
-          <Route path="/donate" element={<Ai />} />
+          {/* ai_image page */}
+          <Route path="/ai_image" element={<Ai />} />
         </Routes>
       </main>
       <Footer />
