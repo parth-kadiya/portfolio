@@ -111,8 +111,10 @@
   align-items: center;
   justify-content: center;
   will-change: transform;
+  box-sizing: border-box;
 }
 
+/* inner circle that holds the image - clipped so image fully fills circle */
 .project-icon-inner {
   background-color: #fff;
   border-radius: 50%;
@@ -121,15 +123,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: rotate-inner 3s linear infinite; /* opposite direction for inner */
+  animation: rotate-inner 3s linear infinite; /* opposite direction for inner (keeps movement) */
+  overflow: hidden; /* important: clip the image to the circle */
+  box-sizing: border-box;
 }
 
-/* image inside icon */
+/* image inside icon - fill the circular inner area completely */
 .project-icon img {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* cover entire circle area while preserving aspect ratio */
   display: block;
+  border-radius: 50%; /* ensure image itself is circular for extra safety */
 }
 
 /* keyframes for rotating border + inner counter-rotate */
@@ -311,7 +316,8 @@
   }
 
   .project-icon img {
-    width: 64px;
-    height: 64px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }

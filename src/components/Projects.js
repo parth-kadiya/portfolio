@@ -50,7 +50,7 @@ export default function Projects() {
 
   const projects = [
     {
-      title: "Lathrix",
+      title: "Product Website",
       description:
         "A modern project showcasing responsive UI and interactive components built with HTML, CSS, and JavaScript.",
       image: "lathrix.png",
@@ -58,26 +58,19 @@ export default function Projects() {
       demo: "https://parth-kadiya.github.io/lathrix",
     },
     {
-      title: "Dr. Karnav Shashtri",
+      title: "Personal Website",
       description:
         "Portfolio and spiritual guru profile with appointment booking and services.",
-      image: "lathrix.png",
+      image: "karnav_shashtri.png",
       github: "https://github.com/parth-kadiya/dr-karnav-shashtri",
       demo: "https://parth-kadiya.github.io/dr-karnav-shashtri",
     },
-    {
-      title: "Doctor Category Two",
-      description:
-        "Doctor listing website with interactive UI for healthcare services.",
-      image: "lathrix.png",
-      github: "https://github.com/parth-kadiya/doctor-category-two",
-      demo: "https://parth-kadiya.github.io/doctor-category-two",
-    },
+    
     {
       title: "Patient Testimonials",
       description:
         "A testimonials showcase webpage with animations and modern styling.",
-      image: "lathrix.png",
+      image: "patient_testimonials.png",
       github: "https://github.com/parth-kadiya/patient-testimonials",
       demo: "https://parth-kadiya.github.io/patient-testimonials",
     },
@@ -85,47 +78,47 @@ export default function Projects() {
       title: "Patient Testimonials Two",
       description:
         "Enhanced testimonials section with improved animations and layout.",
-      image: "lathrix.png",
+      image: "patient_testimonials_two.png",
       github: "https://github.com/parth-kadiya/patient-testimonials-two",
       demo: "https://parth-kadiya.github.io/patient-testimonials-two",
     },
     {
-      title: "Sample Doctor Website",
+      title: "Doctor Website",
       description:
         "Complete doctor website with treatments, timings, testimonials and forms.",
-      image: "lathrix.png",
+      image: "doctor_one.png",
       github: "https://github.com/parth-kadiya/sample-doctor-website",
       demo: "https://parth-kadiya.github.io/sample-doctor-website",
     },
     {
-      title: "Second Sample Doctor",
+      title: "Doctor Website Two",
       description:
         "Doctor profile sample with clean UI and medical service highlights.",
-      image: "lathrix.png",
+      image: "doctor_two.png",
       github: "https://github.com/parth-kadiya/second-sample-doctor",
       demo: "https://parth-kadiya.github.io/second-sample-doctor",
     },
     {
-      title: "Third Sample Doctor",
+      title: "Doctor Website Three",
       description:
         "Doctor portfolio template with smooth animations and responsive sections.",
-      image: "lathrix.png",
+      image: "doctor_three.png",
       github: "https://github.com/parth-kadiya/third-sample-doctor",
       demo: "https://parth-kadiya.github.io/third-sample-doctor",
     },
     {
-      title: "Fourth Sample Doctor",
+      title: "Doctor Website Four",
       description:
         "Doctor profile layout with mobile-friendly design and testimonials.",
-      image: "lathrix.png",
+      image: "doctor_four.png",
       github: "https://github.com/parth-kadiya/fourth-sample-doctor",
       demo: "https://parth-kadiya.github.io/fourth-sample-doctor",
     },
     {
-      title: "Fifth Sample Doctor",
+      title: "Doctor Website Five",
       description:
         "Doctor template focused on patient interaction and easy navigation.",
-      image: "lathrix.png",
+      image: "doctor_five.png",
       github: "https://github.com/parth-kadiya/fifth-sample-doctor",
       demo: "https://github.com/parth-kadiya/fifth-sample-doctor/",
     },
@@ -133,7 +126,7 @@ export default function Projects() {
       title: "Independence Day India Map",
       description:
         "Creative Independence Day themed website featuring India map highlights.",
-      image: "lathrix.png",
+      image: "independence.png",
       github: "https://github.com/parth-kadiya/independence-day-india-map",
       demo: "https://parth-kadiya.github.io/independence-day-india-map",
     },
@@ -141,15 +134,23 @@ export default function Projects() {
       title: "Doctor Category",
       description:
         "Healthcare website for categorizing doctors and services with user-friendly UI.",
-      image: "lathrix.png",
+      image: "doctor_category.png",
       github: "https://github.com/parth-kadiya/doctor-category",
       demo: "https://parth-kadiya.github.io/doctor-category",
     },
     {
-      title: "Kofol",
+      title: "Doctor Category Two",
+      description:
+        "Doctor listing website with interactive UI for healthcare services.",
+      image: "doctor_category_two.png",
+      github: "https://github.com/parth-kadiya/doctor-category-two",
+      demo: "https://parth-kadiya.github.io/doctor-category-two",
+    },
+    {
+      title: "Kofol Product",
       description:
         "Product landing page for Kofol medicine with clean and responsive design.",
-      image: "lathrix.png",
+      image: "kofol.png",
       github: "https://github.com/parth-kadiya/kofol",
       demo: "https://parth-kadiya.github.io/kofol",
     },
@@ -157,7 +158,7 @@ export default function Projects() {
       title: "Himalaya",
       description:
         "Branded webpage for Himalaya products with attractive visuals and sections.",
-      image: "lathrix.png",
+      image: "himalaya.png",
       github: "https://github.com/parth-kadiya/Himalaya",
       demo: "https://parth-kadiya.github.io/Himalaya",
     },
@@ -165,7 +166,7 @@ export default function Projects() {
       title: "SwarnimTouch Services",
       description:
         "Service showcase website with professional sections and animations.",
-      image: "lathrix.png",
+      image: "swarnimtouch.png",
       github: "https://github.com/parth-kadiya/SwarnimTouch-Services",
       demo: "https://parth-kadiya.github.io/SwarnimTouch-Services",
     },
@@ -173,7 +174,7 @@ export default function Projects() {
       title: "Maze Game",
       description:
         "Fun browser-based maze game built with JavaScript and CSS animations.",
-      image: "lathrix.png",
+      image: "maze.png",
       github: "https://github.com/parth-kadiya/Maze-Game",
       demo: "https://parth-kadiya.github.io/Maze-Game",
     },
@@ -181,7 +182,7 @@ export default function Projects() {
       title: "Word Finder Game",
       description:
         "Word puzzle game where users find hidden words. Built using HTML, CSS, and JS.",
-      image: "lathrix.png",
+      image: "word.png",
       github: "https://github.com/parth-kadiya/Word-Finder-Game",
       demo: "https://parth-kadiya.github.io/Word-Finder-Game",
     },
@@ -189,14 +190,14 @@ export default function Projects() {
       title: "Logo Game",
       description:
         "Interactive logo guessing game testing brand recognition skills.",
-      image: "lathrix.png",
+      image: "swarnimtouch.png",
       github: "https://github.com/parth-kadiya/Logo-Game",
       demo: "https://parth-kadiya.github.io/Logo-Game",
     },
     {
       title: "BSV",
       description: "A simple project highlighting BSV theme with styled UI.",
-      image: "lathrix.png",
+      image: "bsv.png",
       github: "https://github.com/parth-kadiya/BSV",
       demo: "https://parth-kadiya.github.io/BSV",
     },
@@ -204,7 +205,7 @@ export default function Projects() {
       title: "15th August",
       description:
         "Independence Day webpage with photo upload and patriotic certificate.",
-      image: "lathrix.png",
+      image: "15thaug.png",
       github: "https://github.com/parth-kadiya/15th-August",
       demo: "https://parth-kadiya.github.io/15th-August",
     },
@@ -246,6 +247,7 @@ export default function Projects() {
                     src={imgSrc}
                     alt={project.title + " preview"}
                     loading="lazy"
+                    decoding="async"
                     onError={(e) => {
                       if (e.currentTarget.src !== placeholder) {
                         e.currentTarget.src = placeholder;
